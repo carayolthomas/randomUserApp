@@ -1,0 +1,10 @@
+/* 
+  APIError.strings
+  RandomUserApp
+
+  Created by Thomas Carayol on 19/09/2018.
+  Copyright © 2018 Thomas Carayol. All rights reserved.
+*/
+
+"RouteNotValid" = "Route is not valid";
+"EmptyResponseBody" = "Empty response body";

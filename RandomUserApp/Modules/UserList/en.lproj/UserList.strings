@@ -1,0 +1,11 @@
+/*
+  UserList.strings
+  RandomUserApp
+
+  Created by Thomas Carayol on 19/09/2018.
+  Copyright © 2018 Thomas Carayol. All rights reserved.
+*/
+
+"Title" = "Random users";
+"ErrorRetrieveUsersStorage" = "An error has occurred";
+"ShowingOldData" = "We are showing you old users.";
