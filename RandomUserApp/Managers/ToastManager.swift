@@ -11,8 +11,8 @@ import SwiftEntryKit
 
 struct ToastManager {
     
+    /// Show a toast message at the bottom of the screen for 3s
     static func toast(title: String? = nil, message: String, verticalOffset: CGFloat = 20.0) {
-        
         var attributes = EKAttributes.bottomFloat
         attributes.entryBackground = .color(color: UIColor.black.withAlphaComponent(0.8))
         attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))

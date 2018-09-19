@@ -13,13 +13,29 @@ import UIKit
 
 /// Delegates from the presenter (business rules) to the view (ui)
 protocol UserDetailsPresenterToViewProtocol: class {
+    
+    /// Show the profile picture
     func show(userPicture: URL)
+    
+    /// Show the nation flag
     func show(flag: String)
+    
+    /// Show gender image
     func show(gender: UIImage?)
+    
+    /// Show name
     func show(name: String)
+    
+    /// Show email
     func show(email: String)
+    
+    /// Show cell phone
     func show(cellPhone: String)
+    
+    /// Show home phone
     func show(homePhone: String)
+    
+    /// Show location address
     func show(locationAddress: String)
 }
 
@@ -38,10 +54,13 @@ protocol UserDetailsViewToPresenterProtocol: class {
     var interactor: UserDetailsPresenterToInteractorProtocol? { get set }
     var router: UserDetailsPresenterToRouterProtocol? { get set }
     
+    /// Callback when the view is loaded
     func viewDidLoad()
 }
 
 /// Delegates from the presenter (business rules) to the router (navigation)
 protocol UserDetailsPresenterToRouterProtocol: class {
+    
+    /// Initializes and creates a new module
     static func createModule(userEntity: UserEntity) -> UIViewController
 }
