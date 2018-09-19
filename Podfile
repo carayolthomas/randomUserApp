@@ -11,10 +11,11 @@ def shared_pods
 end
 
 target 'RandomUserApp' do
-  shared_pods
+    shared_pods
 end
 
 target 'RandomUserAppTests' do
+    shared_pods
 end
 
 target 'RandomUserAppUITests' do
