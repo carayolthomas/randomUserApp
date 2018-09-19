@@ -1,0 +1,28 @@
+PODS:
+  - Disk (0.4.0)
+  - Kingfisher (4.9.0)
+  - QuickLayout (2.0.2)
+  - SwiftEntryKit (0.6.0):
+    - QuickLayout (= 2.0.2)
+
+DEPENDENCIES:
+  - Disk (~> 0.4.0)
+  - Kingfisher
+  - SwiftEntryKit (~> 0.6.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Disk
+    - Kingfisher
+    - QuickLayout
+    - SwiftEntryKit
+
+SPEC CHECKSUMS:
+  Disk: ef2956657d5bb56034b38b29b352170165226440
+  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
+  QuickLayout: a730730b646b231fd4ef7cffaeb1e81fe0e1ca92
+  SwiftEntryKit: ba070426598304c5773d84b54ed8b0763b5f2060
+
+PODFILE CHECKSUM: de6116338b2b30d5f4149fbeb6a1158756fa0e94
+
+COCOAPODS: 1.5.3
