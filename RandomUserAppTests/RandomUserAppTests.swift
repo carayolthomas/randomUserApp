@@ -38,6 +38,7 @@ class RandomUserAppTests: XCTestCase {
         XCTAssertFalse(module.presenter?.shouldRetrieveMoreUsers ?? true)
     }
     
+    /// Test the UserListPresenter paging logic
     func testUserListPresenterPaging() {
         // Create a mock view controller
         let module = MockUserListRouter.createModule() as! MockUserListViewController

@@ -25,15 +25,9 @@ final class MockUserListInteractor: UserListPresenterToInteractorProtocol {
         }
     }
     
-    func getUserListFromStorage() {
-        
-    }
+    func getUserListFromStorage() {}
     
-    func storeUserEntities(entities: UserListEntity?) {
-        
-    }
+    func storeUserEntities(entities: UserListEntity?) {}
     
-    func clearUserListFromStorage() {
-        
-    }
+    func clearUserListFromStorage() {}
 }

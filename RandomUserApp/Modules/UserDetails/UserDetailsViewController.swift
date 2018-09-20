@@ -11,6 +11,10 @@
 import UIKit
 import Kingfisher
 
+fileprivate enum UserDetailsViewIdentifier {
+    static let tableViewAccessibilityIdentifier = "UserDetailsTableViewIdentifier"
+}
+
 class UserDetailsViewController: UITableViewController {
 
     @IBOutlet var userImageView: UIImageView!
@@ -25,6 +29,8 @@ class UserDetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isAccessibilityElement = true
+        self.tableView.accessibilityIdentifier = UserDetailsViewIdentifier.tableViewAccessibilityIdentifier
         self.presenter?.viewDidLoad()
     }
 }

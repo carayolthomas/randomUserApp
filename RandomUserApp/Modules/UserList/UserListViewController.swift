@@ -13,6 +13,7 @@ import SwiftEntryKit
 
 fileprivate enum UserListViewIdentifier {
     static let userListCellIdentifier = "UserListCellIdentifier"
+    static let tableViewAccessibilityIdentifier = "UserListTableViewIdentifier"
 }
 
 final class UserListViewController: UIViewController {
@@ -26,6 +27,8 @@ final class UserListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UserListViewIdentifier.userListCellIdentifier)
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 55.5
+        tableView.isAccessibilityElement = true
+        tableView.accessibilityIdentifier = UserListViewIdentifier.tableViewAccessibilityIdentifier
         return tableView
     }()
     
@@ -63,6 +66,7 @@ extension UserListViewController: UITableViewDataSource {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.accessoryType = .disclosureIndicator
+        cell.isAccessibilityElement = true
         return cell
     }
 }

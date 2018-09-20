@@ -24,7 +24,5 @@ final class MockUserListRouter: UserListPresenterToRouterProtocol {
         return view
     }
     
-    func showDetails(from: UserListPresenterToViewProtocol?, with: UserEntity) {
-        
-    }
+    func showDetails(from: UserListPresenterToViewProtocol?, with: UserEntity) {}
 }

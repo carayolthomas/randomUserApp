@@ -18,6 +18,8 @@
 		AF2EAC432153CF8A001C912B /* UserListRouter+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC422153CF8A001C912B /* UserListRouter+Mock.swift */; };
 		AF2EAC452153CFC9001C912B /* UserListViewController+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC442153CFC9001C912B /* UserListViewController+Mock.swift */; };
 		AF2EAC472153CFF6001C912B /* UserEntity+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC462153CFF6001C912B /* UserEntity+Mock.swift */; };
+		AF2EAC492154092F001C912B /* XCUIApplication+UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC482154092F001C912B /* XCUIApplication+UserList.swift */; };
+		AF40EF5C21540B81003F433A /* XCUIApplication+UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF40EF5B21540B81003F433A /* XCUIApplication+UserDetails.swift */; };
 		AF4E428A2151862D00262659 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E42892151862D00262659 /* AppDelegate.swift */; };
 		AF4E42912151862E00262659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4E42902151862E00262659 /* Assets.xcassets */; };
 		AF4E42942151862E00262659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4E42922151862E00262659 /* LaunchScreen.storyboard */; };
@@ -77,6 +79,8 @@
 		AF2EAC422153CF8A001C912B /* UserListRouter+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListRouter+Mock.swift"; sourceTree = "<group>"; };
 		AF2EAC442153CFC9001C912B /* UserListViewController+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListViewController+Mock.swift"; sourceTree = "<group>"; };
 		AF2EAC462153CFF6001C912B /* UserEntity+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+Mock.swift"; sourceTree = "<group>"; };
+		AF2EAC482154092F001C912B /* XCUIApplication+UserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+UserList.swift"; sourceTree = "<group>"; };
+		AF40EF5B21540B81003F433A /* XCUIApplication+UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+UserDetails.swift"; sourceTree = "<group>"; };
 		AF4E42862151862D00262659 /* RandomUserApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUserApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4E42892151862D00262659 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4E42902151862E00262659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				AF4E42A92151862F00262659 /* RandomUserAppUITests.swift */,
+				AF2EAC482154092F001C912B /* XCUIApplication+UserList.swift */,
+				AF40EF5B21540B81003F433A /* XCUIApplication+UserDetails.swift */,
 				AF4E42AB2151862F00262659 /* Info.plist */,
 			);
 			path = RandomUserAppUITests;
@@ -570,6 +576,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2EAC492154092F001C912B /* XCUIApplication+UserList.swift in Sources */,
+				AF40EF5C21540B81003F433A /* XCUIApplication+UserDetails.swift in Sources */,
 				AF4E42AA2151862F00262659 /* RandomUserAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
