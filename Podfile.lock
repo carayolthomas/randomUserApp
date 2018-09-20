@@ -7,7 +7,7 @@ PODS:
 
 DEPENDENCIES:
   - Disk (~> 0.4.0)
-  - Kingfisher
+  - Kingfisher (~> 4.9.0)
   - SwiftEntryKit (~> 0.6.0)
 
 SPEC REPOS:
@@ -23,6 +23,6 @@ SPEC CHECKSUMS:
   QuickLayout: a730730b646b231fd4ef7cffaeb1e81fe0e1ca92
   SwiftEntryKit: ba070426598304c5773d84b54ed8b0763b5f2060
 
-PODFILE CHECKSUM: de6116338b2b30d5f4149fbeb6a1158756fa0e94
+PODFILE CHECKSUM: d1147e8cc867b3c925bb3fb847ecc735b26595a3
 
 COCOAPODS: 1.5.3

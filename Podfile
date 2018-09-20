@@ -15,7 +15,6 @@ target 'RandomUserApp' do
 end
 
 target 'RandomUserAppTests' do
-    shared_pods
 end
 
 target 'RandomUserAppUITests' do
