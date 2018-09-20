@@ -7,7 +7,7 @@ I had to build an app that fetch data from [randomuser.me]([https://api.randomus
 I also had to deal with connectivity issues.
 
 ## 🐍 Architecture
-I decided to deal with this small app like it could be a big one. So I decided to use the [VIPER](https://medium.com/@smalam119/viper-design-pattern-for-ios-application-development-7a9703902af6) architectural pattern.
+I decided to deal with this small app like it could be a big one. So I've used the [VIPER](https://medium.com/@smalam119/viper-design-pattern-for-ios-application-development-7a9703902af6) architectural pattern.
 This is a kind of Clean Architecture for iOS applications.
 
 ## 🛠 Dependencies
@@ -22,12 +22,12 @@ Here the list of the three dependencies I used :
 ## 🕵️‍♂️ How to test 
 Clone the project
 
-git clone git@github.com:carayolthomas/randomUserApp.git
+`git clone git@github.com:carayolthomas/randomUserApp.git`
 
 Install dependencies
 
-sudo gem install cocoapods
-pod install
+`sudo gem install cocoapods`
+`pod install`
 
 Open `RandomUserApp.xcworkspace`
 
