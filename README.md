@@ -20,14 +20,15 @@ Here the list of the three dependencies I used :
 - `Kingfisher` to load and process remote images
 
 ## 🕵️‍♂️ How to test 
-Clone the project
+### Clone the project
 
-`git clone git@github.com:carayolthomas/randomUserApp.git`
+Run `git clone git@github.com:carayolthomas/randomUserApp.git`
 
-Install dependencies
+### Install dependencies
 
-`sudo gem install cocoapods`
-`pod install`
+Run `pod install`
+
+### Workspace
 
 Open `RandomUserApp.xcworkspace`
 
