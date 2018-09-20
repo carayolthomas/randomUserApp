@@ -18,9 +18,9 @@ final class UserListPresenter: UserListViewToPresenterProtocol {
 
     var data: UserListEntity?
     
-    let pageSize: Int = 20
     let loadingOffset: Int = 5
-    var shouldRetrieveMore: Bool = true
+    var shouldRetrieveMoreUsers: Bool = true
+    var pageSize: Int = 20
     
     init(view: UserListPresenterToViewProtocol?, interactor: UserListPresenterToInteractorProtocol?, router: UserListPresenterToRouterProtocol?) {
         self.view = view
@@ -68,8 +68,8 @@ final class UserListPresenter: UserListViewToPresenterProtocol {
             return
         }
         
-        if indexPath.row == data.results.count - self.loadingOffset && self.shouldRetrieveMore {
-            self.interactor?.getUserListFromAPI(result: self.pageSize, page: data.info.page + 1)
+        if indexPath.row == data.results.count - self.loadingOffset {
+            self.getUsers(pageNumber: data.info.page + 1)
         }
     }
     
@@ -77,11 +77,19 @@ final class UserListPresenter: UserListViewToPresenterProtocol {
         self.view?.updateNavigationBar()
         self.view?.showTableView()
         self.view?.showCenteredLoading()
-        self.interactor?.getUserListFromAPI(result: self.pageSize, page: 1)
+        self.getUsers(pageNumber: 1)
     }
     
     func viewWillAppear() {
         self.view?.deselectRows()
+    }
+}
+
+extension UserListPresenter {
+    func getUsers(pageNumber: Int) {
+        if self.shouldRetrieveMoreUsers {
+            self.interactor?.getUserListFromAPI(result: self.pageSize, page: pageNumber)
+        }
     }
 }
 
@@ -90,7 +98,7 @@ extension UserListPresenter: UserListInteractorToPresenterProtocol {
     func getUserListFromAPISuccess(response: UserListEntity) {
         // If we can't retrieve enough user, then we stop.
         if response.info.results < self.pageSize {
-            self.shouldRetrieveMore = false
+            self.shouldRetrieveMoreUsers = false
         }
         
         var offset: Int = 0
@@ -118,7 +126,7 @@ extension UserListPresenter: UserListInteractorToPresenterProtocol {
     
     func getUserListFromStorageSuccess(response: UserListEntity) {
         self.data = response
-        self.shouldRetrieveMore = false
+        self.shouldRetrieveMoreUsers = false
         
         self.view?.hideCenteredLoading()
         let indexPaths = response.results.enumerated().map({ return IndexPath(row: $0.offset, section: 0) })

@@ -79,6 +79,12 @@ protocol UserListViewToPresenterProtocol: class {
     var interactor: UserListPresenterToInteractorProtocol? { get set }
     var router: UserListPresenterToRouterProtocol? { get set }
     
+    /// Indicates if it should get more users from interactor
+    var shouldRetrieveMoreUsers: Bool { get }
+    
+    /// The size the each page we get from API
+    var pageSize: Int { get set }
+    
     /// Return the number of sections needed for the `UITableView`
     func numberOfSections() -> Int
     

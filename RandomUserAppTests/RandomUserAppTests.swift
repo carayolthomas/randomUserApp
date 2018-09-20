@@ -21,82 +21,44 @@ class RandomUserAppTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+    /// Test the UserListPresenter data output
+    func testUserListPresenterData() {
+        // Create a mock view controller
         let module = MockUserListRouter.createModule() as! MockUserListViewController
-        module.presenter?.interactor?.getUserListFromAPI(result: 20, page: 1)
-        XCTAssert(module.presenter?.numberOfRows(section: 0) == 2)
+        // Retrieve mock data from interactor
+        if let presenter = module.presenter as? UserListPresenter {
+            presenter.pageSize = 20
+            presenter.getUsers(pageNumber: 1)
+        }
         
-        XCTAssertTrue(true)
-    }
-}
-
-final class MockUserListInteractor: UserListPresenterToInteractorProtocol {
-    
-    weak var presenter: UserListInteractorToPresenterProtocol?
-    
-    func getUserListFromAPI(result: Int, page: Int) {
-        let results: [UserEntity] = [UserEntity.mocked(), UserEntity.mocked()]
-        let info: UserListInfoEntity = UserListInfoEntity(results: results.count, page: page)
-        self.presenter?.getUserListFromAPISuccess(response: UserListEntity(results: results, info: info))
+        XCTAssert(module.presenter?.numberOfSections() == 1)
+        XCTAssert(module.presenter?.numberOfRows(section: 0) == 2, "should have two rows because mock interactor returns a maximum of two users")
+        XCTAssertTrue(module.presenter?.content(at: IndexPath(row: 0, section: 0))?.string.contains("Lydia") ?? false, "the first mock user should have Lydia as firstname")
+        XCTAssertTrue(module.presenter?.content(at: IndexPath(row: 1, section: 0))?.string.contains("App") ?? false, "the second mock user should have App as firstname")
+        XCTAssertFalse(module.presenter?.shouldRetrieveMoreUsers ?? true)
     }
     
-    func getUserListFromStorage() {
+    func testUserListPresenterPaging() {
+        // Create a mock view controller
+        let module = MockUserListRouter.createModule() as! MockUserListViewController
+        // Retrieve mock data from interactor
+        if let presenter = module.presenter as? UserListPresenter {
+            presenter.pageSize = 1
+            presenter.getUsers(pageNumber: 1)
+        }
         
-    }
-    
-    func storeUserEntities(entities: UserListEntity?) {
+        XCTAssert(module.presenter?.numberOfRows(section: 0) == 1, "should have one rows because we asked for one result")
+        XCTAssertTrue(module.presenter?.content(at: IndexPath(row: 0, section: 0))?.string.contains("Lydia") ?? false, "the first mock user should have Lydia as firstname")
+        XCTAssertTrue(module.presenter?.shouldRetrieveMoreUsers ?? false)
         
-    }
-    
-    func clearUserListFromStorage() {
+        if let presenter = module.presenter as? UserListPresenter {
+            presenter.pageSize = 1
+            presenter.getUsers(pageNumber: 2)
+        }
         
-    }
-}
-
-final class MockUserListRouter: UserListPresenterToRouterProtocol {
-    
-    static func createModule() -> UIViewController {
-        let view = MockUserListViewController()
-        let interactor: UserListPresenterToInteractorProtocol = MockUserListInteractor()
-        let router: UserListPresenterToRouterProtocol = UserListRouter()
-        let presenter: UserListViewToPresenterProtocol & UserListInteractorToPresenterProtocol = UserListPresenter(view: view, interactor: interactor, router: router)
-        
-        view.presenter = presenter
-        interactor.presenter = presenter
-        
-        return view
-    }
-    
-    func showDetails(from: UserListPresenterToViewProtocol?, with: UserEntity) {
-        
-    }
-}
-
-final class MockUserListViewController: UIViewController, UserListPresenterToViewProtocol {
-    
-    var presenter: UserListViewToPresenterProtocol?
-    
-    func showCenteredLoading() {}
-    
-    func hideCenteredLoading() {}
-    
-    func insertRows(at: [IndexPath]) {}
-    
-    func showTableView() {}
-    
-    func updateNavigationBar() {}
-    
-    func showError(error: String) {}
-    
-    func deselectRows() {}
-}
-
-extension UserEntity {
-    
-    static func mocked() -> UserEntity {
-        return UserEntity(gender: .female, name: UserNameEntity(title: "", first: "", last: ""), location: UserLocationEntity(street: "", city: "", state: "", postcode: ""), email: "", phone: "", cell: "", picture: UserPictureEntity(large: ""), nat: "")
+        XCTAssert(module.presenter?.numberOfRows(section: 0) == 2, "should have two rows because we asked for one more result")
+        XCTAssertTrue(module.presenter?.content(at: IndexPath(row: 0, section: 0))?.string.contains("Lydia") ?? false, "the first mock user should have Lydia as firstname")
+        XCTAssertTrue(module.presenter?.content(at: IndexPath(row: 1, section: 0))?.string.contains("Lydia") ?? false, "the second mock user should have Lydia as firstname")
+        XCTAssertTrue(module.presenter?.shouldRetrieveMoreUsers ?? false)
     }
 }

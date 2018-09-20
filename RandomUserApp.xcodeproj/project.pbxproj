@@ -14,6 +14,10 @@
 		AF0CD6522152EB1400E50822 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD64F2152EB1300E50822 /* AnyDecodable.swift */; };
 		AF0CD6532152EB1400E50822 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD6502152EB1400E50822 /* AnyEncodable.swift */; };
 		AF0CD6542152EB1400E50822 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD6512152EB1400E50822 /* AnyCodable.swift */; };
+		AF2EAC412153CF57001C912B /* UserListInteractor+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC402153CF57001C912B /* UserListInteractor+Mock.swift */; };
+		AF2EAC432153CF8A001C912B /* UserListRouter+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC422153CF8A001C912B /* UserListRouter+Mock.swift */; };
+		AF2EAC452153CFC9001C912B /* UserListViewController+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC442153CFC9001C912B /* UserListViewController+Mock.swift */; };
+		AF2EAC472153CFF6001C912B /* UserEntity+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EAC462153CFF6001C912B /* UserEntity+Mock.swift */; };
 		AF4E428A2151862D00262659 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E42892151862D00262659 /* AppDelegate.swift */; };
 		AF4E42912151862E00262659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4E42902151862E00262659 /* Assets.xcassets */; };
 		AF4E42942151862E00262659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4E42922151862E00262659 /* LaunchScreen.storyboard */; };
@@ -69,6 +73,10 @@
 		AF0CD64F2152EB1300E50822 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
 		AF0CD6502152EB1400E50822 /* AnyEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		AF0CD6512152EB1400E50822 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		AF2EAC402153CF57001C912B /* UserListInteractor+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListInteractor+Mock.swift"; sourceTree = "<group>"; };
+		AF2EAC422153CF8A001C912B /* UserListRouter+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListRouter+Mock.swift"; sourceTree = "<group>"; };
+		AF2EAC442153CFC9001C912B /* UserListViewController+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListViewController+Mock.swift"; sourceTree = "<group>"; };
+		AF2EAC462153CFF6001C912B /* UserEntity+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+Mock.swift"; sourceTree = "<group>"; };
 		AF4E42862151862D00262659 /* RandomUserApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUserApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4E42892151862D00262659 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4E42902151862E00262659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +210,10 @@
 			isa = PBXGroup;
 			children = (
 				AF4E429E2151862F00262659 /* RandomUserAppTests.swift */,
+				AF2EAC442153CFC9001C912B /* UserListViewController+Mock.swift */,
+				AF2EAC402153CF57001C912B /* UserListInteractor+Mock.swift */,
+				AF2EAC422153CF8A001C912B /* UserListRouter+Mock.swift */,
+				AF2EAC462153CFF6001C912B /* UserEntity+Mock.swift */,
 				AF4E42A02151862F00262659 /* Info.plist */,
 			);
 			path = RandomUserAppTests;
@@ -546,7 +558,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2EAC432153CF8A001C912B /* UserListRouter+Mock.swift in Sources */,
+				AF2EAC452153CFC9001C912B /* UserListViewController+Mock.swift in Sources */,
 				AF4E429F2151862F00262659 /* RandomUserAppTests.swift in Sources */,
+				AF2EAC412153CF57001C912B /* UserListInteractor+Mock.swift in Sources */,
+				AF2EAC472153CFF6001C912B /* UserEntity+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
