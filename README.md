@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/carayolthomas/randomUserApp.svg?branch=master)](https://travis-ci.org/carayolthomas/randomUserApp)
+[![Build Status](https://travis-ci.org/carayolthomas/randomUserApp.svg?branch=master)](https://travis-ci.org/carayolthomas/randomUserApp)[![codecov](https://codecov.io/gh/carayolthomas/randomUserApp/branch/master/graph/badge.svg)](https://codecov.io/gh/carayolthomas/randomUserApp)
 
 ## 👋 About
 This app is the technical assessment as a iOS developer candidate at [Lydia app](https://lydia-app.com).
