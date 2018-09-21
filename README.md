@@ -11,7 +11,7 @@ I decided to deal with this small app like it could be a big one. So I've used t
 This is a kind of Clean Architecture for iOS applications.
 
 ## 🛠 Dependencies
-I tried to use as many dependencies as possible but I had to take shortcut sometimes to save some development time.
+I tried to use as few dependencies as possible but I had to take shortcut sometimes to save some development time.
 I use [CocoaPods](https://cocoapods.org) as dependency manager.
 Here the list of the three dependencies I used :
 
