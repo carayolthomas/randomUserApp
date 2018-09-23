@@ -39,7 +39,7 @@ protocol UserDetailsPresenterToViewProtocol: class {
     func show(locationAddress: String)
 }
 
-/// Delegates from the interactor (api/storage) to the view (ui)
+/// Delegates from the interactor (api/storage) to the presenter (business rules)
 protocol UserDetailsInteractorToPresenterProtocol: class {
 }
 

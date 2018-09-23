@@ -19,26 +19,31 @@ final class UserListInteractor: UserListPresenterToInteractorProtocol {
         do {
             let request = try APIRouter.getUserList(result: result, page: page).asURLRequest()
             
-            let completionHandler: (Data?, URLResponse?, Error?) -> Void = { (data, response, error) in
+            let completionHandler: (Data?, URLResponse?, Error?) -> Void = { [weak self] (data, response, error) in
+                
+                guard let strongSelf = self else {
+                    return
+                }
+                
                 if let error = error {
                     DispatchQueue.main.async {
-                        self.presenter?.getUserListFromAPIError(error: error.localizedDescription)
+                        strongSelf.presenter?.getUserListFromAPIError(error: error.localizedDescription)
                     }
                 } else {
                     if let data = data {
                         do {
                             let decodedData = try JSONDecoder().decode(UserListEntity.self, from: data)
                             DispatchQueue.main.async {
-                                self.presenter?.getUserListFromAPISuccess(response: decodedData)
+                                strongSelf.presenter?.getUserListFromAPISuccess(response: decodedData)
                             }
                         } catch {
                             DispatchQueue.main.async {
-                                self.presenter?.getUserListFromAPIError(error: error.localizedDescription)
+                                strongSelf.presenter?.getUserListFromAPIError(error: error.localizedDescription)
                             }
                         }
                     } else {
                         DispatchQueue.main.async {
-                            self.presenter?.getUserListFromAPIError(error: APIRouterError.emptyResponseBody.localizedDescription)
+                            strongSelf.presenter?.getUserListFromAPIError(error: APIRouterError.emptyResponseBody.localizedDescription)
                         }
                     }
                 }
@@ -52,16 +57,21 @@ final class UserListInteractor: UserListPresenterToInteractorProtocol {
     }
     
     func getUserListFromStorage() {
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
             do {
                 let entities = try Disk.retrieve("RandomUserApp/entities.json", from: .applicationSupport, as: UserListEntity.self)
                 DispatchQueue.main.async {
-                    self.presenter?.getUserListFromStorageSuccess(response: entities)
+                    strongSelf.presenter?.getUserListFromStorageSuccess(response: entities)
                 }
             } catch {
                 print("⛔️ Error while retrieving users from disk.")
                 DispatchQueue.main.async {
-                    self.presenter?.getUserListFromStorageError(error: NSLocalizedString("ErrorRetrieveUsersStorage", tableName: "UserList", comment: ""))
+                    strongSelf.presenter?.getUserListFromStorageError(error: NSLocalizedString("ErrorRetrieveUsersStorage", tableName: "UserList", comment: ""))
                 }
             }
         }

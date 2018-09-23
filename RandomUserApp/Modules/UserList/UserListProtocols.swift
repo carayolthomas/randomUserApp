@@ -36,7 +36,7 @@ protocol UserListPresenterToViewProtocol: class {
     func deselectRows()
 }
 
-/// Delegates from the interactor (api/storage) to the view (ui)
+/// Delegates from the interactor (api/storage) to the presenter (business rules)
 protocol UserListInteractorToPresenterProtocol: class {
     
     /// Callback when a new response from the API is available
@@ -110,7 +110,7 @@ protocol UserListViewToPresenterProtocol: class {
 /// Delegates from the presenter (business rules) to the router (navigation)
 protocol UserListPresenterToRouterProtocol: class {
     
-    /// Initializes and creates a new module
+    /// Initialize and create a new module
     static func createModule() -> UIViewController
     
     /// Show the next module for the given user
